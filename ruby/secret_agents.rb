@@ -8,7 +8,6 @@
 # get input string
 
 def encrypt(input)
-  alphabet = "abcdefghijklmnopqrstuvwxyza"
 
   index = 0
 
@@ -21,8 +20,33 @@ def encrypt(input)
     index  += 1
   end
 
-puts input
+  puts input
+
+  input
 end
+
+def decrypt(input)
+
+  alphabet = "zabcdefghijklmnopqrstuvwxyz"
+  alphabet.reverse!
+  index = 0
+
+  while index < input.length
+    current_letter = input[index]
+    input[index] = alphabet[alphabet.index(current_letter) + 1]
+
+    index  += 1
+  end
+
+puts input
+
+input
+end
+
 
 encrypt ("abc")
 encrypt ("zed")
+decrypt ("bcd")
+decrypt ("afe")
+
+decrypt(encrypt("swordfish"))
