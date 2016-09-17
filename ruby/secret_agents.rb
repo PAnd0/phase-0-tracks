@@ -54,4 +54,26 @@ end
 
 
 #Ugrade Pseudocode:
-# =>
+# => Ask user which method they would like
+# IF they say encrypt
+#   Ask for password
+#     Run ENCRYPT method
+# ELSE
+#   Ask for password
+#     Run DECRYPT method
+# PRINT result
+
+puts "Would you like to encrypt or decrypt a password?"
+choice = gets.chomp
+
+if choice == "encrypt"
+  puts "Enter password"
+  password = gets.chomp
+  encrypt(password)
+  puts password
+else
+  puts "Enter password"
+  password = gets.chomp
+  decrypt(password)
+  puts password
+end
