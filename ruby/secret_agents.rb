@@ -7,3 +7,17 @@
 
 # get input string
 
+def encrypt(input)
+  alphabet = "abcdefghijklmnopqrstuvwxyza"
+
+  index = 0
+
+  while index < input.length
+    input[index] = input[index].next
+    counter += 1
+  end
+
+puts input
+end
+
+encrypt ("abc")
