@@ -1,0 +1,20 @@
+def use_elevator
+
+  while (elevator_floor != robot_floor || elevator_door.closed?)
+    push(elevator_button)
+  end
+
+  walk(forward, 5)
+  turn (right, 180)
+
+  index = 0
+  for each floor_button
+    if current_button.floor == destination_floor && !current_button.pressed?
+      push(floor_button)
+    end
+  end
+
+  if floor is destination floor and door is open
+    walk(forward, 5)
+  end
+end
