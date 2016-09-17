@@ -4,7 +4,6 @@
 #     For each letter in input string
 #         -find index of following letter in alphabet (add 1)
 #         -replace current letter with following letter in alphabet using index
-
 # get input string
 
 def encrypt(input)
@@ -20,7 +19,7 @@ def encrypt(input)
     index  += 1
   end
 
-  puts input
+  # puts input
 
   input
 end
@@ -38,15 +37,21 @@ def decrypt(input)
     index  += 1
   end
 
-puts input
+# puts input
 
 input
 end
 
 
-encrypt ("abc")
-encrypt ("zed")
-decrypt ("bcd")
-decrypt ("afe")
+# encrypt ("abc")
+# encrypt ("zed")
+# decrypt ("bcd")
+# decrypt ("afe")
 
-decrypt(encrypt("swordfish"))
+# decrypt(encrypt("swordfish"))
+
+#The nested function call works because we defined a return statement rather than using an implicit return value which would return nil from the inside method.
+
+
+#Ugrade Pseudocode:
+# =>
