@@ -18,3 +18,28 @@ def use_elevator
     walk(forward, 5)
   end
 end
+
+def wash_dishes
+  if there are dirty dishes in the sink
+    place drain plug in sink
+
+    until sink is full
+      fill sink with hot water
+    end
+
+    add 4tbsp of soap to water
+    for each dirty plate
+      submerge in soapy water and scrub with sponge
+      rinse with clean water from faucet
+      dry with a clean towel
+      return to storage
+    end
+
+    remove drain plug from sink
+    if sink does not drain
+      until sink drains
+        turn on garbage disposal
+      end
+    end
+  end
+end
