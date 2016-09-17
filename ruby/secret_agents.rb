@@ -13,11 +13,16 @@ def encrypt(input)
   index = 0
 
   while index < input.length
-    input[index] = input[index].next
-    counter += 1
+    if input[index] == "z"
+      input[index] = "a"
+    else
+      input[index] = input[index].next
+    end
+    index  += 1
   end
 
 puts input
 end
 
 encrypt ("abc")
+encrypt ("zed")
