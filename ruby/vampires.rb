@@ -2,7 +2,8 @@
 puts "How many employees will be processed?"
 employee_num = gets.chomp.to_i
 
-employee_index = 0
+index = 0
+
 while index < employee_num
 
   puts "What is your name?"
@@ -40,7 +41,6 @@ while index < employee_num
 
   puts "Name any allergies that you have one by one. Enter 'done' when finished."
 
-  allergy_index = 0
   allergy = nil
 
   while allergy != "done" and allergy != "sunshine"
@@ -67,5 +67,5 @@ while index < employee_num
 
   puts result
 
-  employee_index += 1
+  index += 1
 end
