@@ -1,5 +1,3 @@
-
-
 puts "What is your name?"
 name = gets.chomp
 
@@ -11,34 +9,33 @@ birth_year = gets.chomp.to_i
 
 user_input = nil
 until ["y","n"].include? user_input
-puts "Our company cafeteria serves garlic bread. Should we order some for you?"
+  puts "Our company cafeteria serves garlic bread. Should we order some for you?"
+  user_input = gets.chomp
+end
 
+if user_input[0] == 'y'
+  garlic_bread = TRUE
+elsif user_input[0] == 'n'
+  garlic_bread = FALSE
+end
 
-# garlic_in = nil
+user_input = nil
+until ["y","n"].include? user_input
+  puts "Would you like to enroll in the company's health insurance?"
+  user_input = gets.chomp
+end
 
-# until garlic_in = gets[0] == "y" || "n"
-#   puts "Please enter yes or no."
-# end
-#   garlic_bread = gets[0] == 'y'
+if user_input[0] == 'y'
+  health_insurance = TRUE
+elsif user_input[0] == 'n'
+  health_insurance = FALSE
+end
 
-
-# puts "Would you like to enroll in the company's health insurance?"
-# health_insurance = gets.chomp.downcase
-
-#   case health_insurance.
-#     when "yes", "y"
-#       health_insurance = True
-#     when "no", "n"
-#       health_insurance = False
-#     else
-#       puts "Please enter yes or no."
-#   end
-
-  puts name
-  puts age
-  puts birth_year
-  puts garlic_bread
-  puts health_insurance
+puts name
+puts age
+puts birth_year
+puts garlic_bread
+puts health_insurance
 
  # if age == 2016 - birth_year && ( garlic_bread == yes ||
  # else
