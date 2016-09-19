@@ -47,19 +47,20 @@ while index < employee_num
     allergy = gets.chomp
   end
 
-  result = nil
+  result = "Results inconclusive."
 
-  if allergy != sunshine
+  if allergy != "sunshine"
     if age == (2016 - birth_year) && ( garlic_bread || health_insurance )
       result = "Probably not a vampire."
-    elsif age != (2016 - birth_year) && ( !garlic_bread || !health_insurance )
+    end
+    if age != (2016 - birth_year) && ( !garlic_bread || !health_insurance )
       result = "Probably a vampire."
-    elsif age != (2016 - birth_year) && !garlic_bread && !health_insurance
+    end
+    if age != (2016 - birth_year) && !garlic_bread && !health_insurance
       result = "Almost certainly a vampire."
-    elsif name == "Drake Cula" || name == "Tu Fang"
+    end
+    if name == "Drake Cula" || name == "Tu Fang"
       result = "Definitely a vampire."
-    else
-      result = "Results inconclusive."
     end
   else
     result = "Probably a vampire."
@@ -69,3 +70,5 @@ while index < employee_num
 
   index += 1
 end
+
+puts "Actually, never mind! What do these questions have to do with anything? Let's all be friends."
