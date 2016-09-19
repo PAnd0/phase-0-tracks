@@ -8,7 +8,7 @@ puts "What year were you born?"
 birth_year = gets.chomp.to_i
 
 user_input = nil
-until ["y","n"].include? user_input
+until ["yes","no","y","n"].include? user_input
   puts "Our company cafeteria serves garlic bread. Should we order some for you?"
   user_input = gets.chomp
 end
@@ -20,7 +20,7 @@ elsif user_input[0] == 'n'
 end
 
 user_input = nil
-until ["y","n"].include? user_input
+until ["yes","no","y","n"].include? user_input
   puts "Would you like to enroll in the company's health insurance?"
   user_input = gets.chomp
 end
@@ -31,11 +31,18 @@ elsif user_input[0] == 'n'
   health_insurance = FALSE
 end
 
-puts name
-puts age
-puts birth_year
-puts garlic_bread
-puts health_insurance
+result = nil
 
- # if age == 2016 - birth_year && ( garlic_bread == yes ||
- # else
+if age == (2016 - birth_year) && ( garlic_bread || health_insurance )
+  result = "Probably not a vampire."
+elsif age != (2016 - birth_year) && ( !garlic_bread || !health_insurance )
+  result = "Probably a vampire."
+elsif age != (2016 - birth_year) && !garlic_bread && !health_insurance
+  result = "Almost certainly a vampire."
+elsif name == "Drake Cula" || name == "Tu Fang"
+  result = "Definitely a vampire."
+else
+  result = "Results inconclusive."
+end
+
+puts result
