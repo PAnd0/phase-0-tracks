@@ -38,5 +38,22 @@ def alias_manager(name)
   agent_alias.join('')
 end
 
-#Driver Code
-p alias_manager('Felicia Torres')
+#Interface
+input = nil
+
+aliases = {}
+
+loop do
+  puts "Please enter name"
+  input = gets.chomp
+  break if input == "quit"
+  # puts alias_manager(input)
+  aliases.merge!(input.to_sym => alias_manager(input))
+end
+
+aliases.each { |key, value| puts "#{key} is also known as #{value}." }
+
+# p aliases
+
+# #Driver Code
+# p alias_manager('Felicia Torres')
