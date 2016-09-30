@@ -8,6 +8,18 @@ class Santa
     puts "That was a good #{cookie_type}!"
   end
 
+  def celebrate_birthday
+    @age += 1
+  end
+
+  def get_mad_at(reindeer_name)
+    @reindeer_ranking.delete(reindeer_name).push(reindeer_name)
+  end
+
+  def set_gender(gender)
+    @gender = gender
+  end
+
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance ..."
     @gender = gender
