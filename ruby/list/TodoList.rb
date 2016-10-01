@@ -11,4 +11,12 @@ class TodoList
   def add_item(item)
     @tasklist << item
   end
+
+  def delete_item(item)
+    @tasklist.delete(item)
+  end
+
+  def get_item(index)
+    @tasklist[index]
+  end
 end
