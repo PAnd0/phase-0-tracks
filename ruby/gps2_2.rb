@@ -96,3 +96,14 @@ update_quantity(test_list, "ice cream", 1)
 #print out your list
 print_list(test_list)
 
+#Reflect
+# What did you learn about pseudocode from working on this challenge?
+  #Detailed pseudocode will save coding time later in a project and is worth the time investment.
+# What are the tradeoffs of using arrays and hashes for this challenge?
+  #Hashes are more appropriate when data is naturally grouped into pairs or when labels are needed.
+# What does a method return?
+  #a method returns either an explicitly specified return value or an implicit return value (the last expression evaluated).
+# What kind of things can you pass into methods as arguments?
+  # block, method, data types (ints, strings), data structures (arrays, hashes), or other objects.
+# How can you pass information between methods methods can save information in class variables or pass information as arguments to another method. Methods can be nested.
+# What concepts were solidified in this challenge, and what concepts are still confusing? I still need to research how to access the functionality of one method within a second method. Maybe this can be accomplished by passing the first method to the second method as an argument.
