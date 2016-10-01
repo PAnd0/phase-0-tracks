@@ -13,11 +13,25 @@ class Santa
   end
 
   def get_mad_at(reindeer_name)
-    @reindeer_ranking.delete(reindeer_name).push(reindeer_name)
+    # @reindeer_ranking.delete(reindeer_name)
+    @reindeer_ranking.delete
+    # @reindeer_ranking.push(reindeer_name)
   end
 
-  def set_gender(gender)
-    @gender = gender
+  def gender=(new_gender)
+    @gender = new_gender
+  end
+
+  def age
+    @age
+  end
+
+  def ethnicity
+    @ethnicity
+  end
+
+  def gender
+    @gender
   end
 
   def initialize(gender, ethnicity)
@@ -32,12 +46,21 @@ end
 
 Jamie = Santa.new("female", "asian")
 
+Jamie.get_mad_at("Dasher")
+puts "The current reindeer rankings are: #{reindeer_ranking}"
+
 Jamie.speak
 Jamie.eat_milk_and_cookies("snickerdoodle")
 
-santas = []
-example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
-example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-example_genders.length.times do |i|
-  santas << Santa.new(example_genders[i], example_ethnicities[i])
-end
+Jamie.celebrate_birthday
+puts "Jamie is #{Jamie.age} years old."
+
+Jamie.gender=("male")
+puts "Jamie is a #{Jamie.gender}."
+
+# santas = []
+# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+# example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+# example_genders.length.times do |i|
+#   santas << Santa.new(example_genders[i], example_ethnicities[i])
+# end
