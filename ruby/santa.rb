@@ -1,5 +1,6 @@
 class Santa
 
+  #Initialize Method
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance ..."
     @gender = gender
@@ -8,6 +9,29 @@ class Santa
     @age = 0
   end
 
+  #Getter Methods
+  def gender
+    @gender
+  end
+
+  def ethnicity
+    @ethnicity
+  end
+
+  def reindeer_ranking
+    @reindeer_ranking
+  end
+
+  def age
+    @age
+  end
+
+  #Setter Methods
+  def gender=(gender)
+    @gender = gender
+  end
+
+  #Other Methods
   def speak
     puts "Ho, ho, ho! Haaaappy holidays!"
   end
@@ -25,20 +49,16 @@ class Santa
     @reindeer_ranking.push(reindeer_name)
   end
 
-  def gender=(gender)
-    @gender = gender
-  end
-
-  def gender
-    @gender
-  end
-
-  def reindeer_ranking
-    @reindeer_ranking
+  def print_status
+    puts "\nGender: #{@gender}"
+    puts "Ethnicity: #{@ethnicity}"
+    puts "Reindeer Ranking: #{@reindeer_ranking}"
+    puts "Age: #{@age}"
   end
 
 end
 
+#Driver Code
 Jamie = Santa.new("female", "asian")
 
 Jamie.speak
@@ -46,15 +66,17 @@ Jamie.eat_milk_and_cookies("snickerdoodle")
 p Jamie.reindeer_ranking
 Jamie.get_mad_at("Prancer")
 p Jamie.reindeer_ranking
+Jamie.gender = "undecided"
 p Jamie.gender
 
-# santas = []
-# example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A", "unfamiliar with gender concept"]
-# example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "Extraterrestrial"]
-# example_genders.length.times do |i|
-#   santas << Santa.new(example_genders[i], example_ethnicities[i])
-# end
 
-# santas.each do |santa|
-#   p santa
-# end
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A", "unfamiliar with gender concept"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "Extraterrestrial"]
+example_genders.length.times do |i|
+  santas << Santa.new(example_genders[i], example_ethnicities[i])
+end
+
+santas.each do |santa|
+  santa.print_status
+end
