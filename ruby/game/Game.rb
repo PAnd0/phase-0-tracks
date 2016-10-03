@@ -10,6 +10,7 @@ class Game
       blanks << "_"
     end
     @word = {word => blanks}
+    @guesses = word.length * 3
   end
 end
 
