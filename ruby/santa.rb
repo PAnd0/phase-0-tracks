@@ -1,3 +1,4 @@
+
 class Santa
 
   attr_accessor :gender, :ethnicity, :reindeer_ranking, :age
