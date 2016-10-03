@@ -4,7 +4,7 @@ class Santa
 
   #Initialize Method
   def initialize(gender, ethnicity)
-    puts "Initializing Santa instance ..."
+    puts "\nInitializing Santa instance ..."
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
@@ -61,24 +61,35 @@ class Santa
 end
 
 #Driver Code
-Jamie = Santa.new("female", "asian")
+# Jamie = Santa.new("female", "asian")
 
-Jamie.speak
-Jamie.eat_milk_and_cookies("snickerdoodle")
-p Jamie.reindeer_ranking
-Jamie.get_mad_at("Prancer")
-p Jamie.reindeer_ranking
-Jamie.gender = "undecided"
-p Jamie.gender
+# Jamie.speak
+# Jamie.eat_milk_and_cookies("snickerdoodle")
+# p Jamie.reindeer_ranking
+# Jamie.get_mad_at("Prancer")
+# p Jamie.reindeer_ranking
+# Jamie.gender = "undecided"
+# p Jamie.gender
 
 
-santas = []
+# santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A", "unfamiliar with gender concept"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A", "Extraterrestrial"]
-example_genders.length.times do |i|
-  santas << Santa.new(example_genders[i], example_ethnicities[i])
-end
+# example_genders.length.times do |i|
+#   santas << Santa.new(example_genders[i], example_ethnicities[i])
+# end
 
-santas.each do |santa|
-  santa.print_status
+# santas.each do |santa|
+#   santa.print_status
+# end
+
+santa_count = 0
+while santa_count < 100
+  santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+  santa.age = rand(141)
+  puts "Gender: #{santa.gender}"
+  puts "Ethnicity: #{santa.ethnicity}"
+  puts "Reindeer Ranking: #{santa.reindeer_ranking}"
+  puts "Age: #{santa.age}"
+  santa_count += 1
 end
