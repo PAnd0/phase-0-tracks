@@ -1,5 +1,7 @@
 class Santa
 
+  attr_accessor :gender, :ethnicity, :reindeer_ranking, :age
+
   #Initialize Method
   def initialize(gender, ethnicity)
     puts "Initializing Santa instance ..."
@@ -10,21 +12,21 @@ class Santa
   end
 
   #Getter Methods
-  def gender
-    @gender
-  end
+  # def gender
+  #   @gender
+  # end
 
-  def ethnicity
-    @ethnicity
-  end
+  # def ethnicity
+  #   @ethnicity
+  # end
 
-  def reindeer_ranking
-    @reindeer_ranking
-  end
+  # def reindeer_ranking
+  #   @reindeer_ranking
+  # end
 
-  def age
-    @age
-  end
+  # def age
+  #   @age
+  # end
 
   #Setter Methods
   def gender=(gender)
