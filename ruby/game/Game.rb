@@ -35,12 +35,18 @@ class Game
     @word.values[0].include?(letter)
   end
 
+  def word_guessed?
+    !@word.values[0].include?("_")
+  end
+
 
 end
 
 # user interface
-game = Game.new("hairpin")
-game.update_word("i")
-p game.word_state
+puts "Welcome to Definitely Not Hangman!"
+puts "Player 1, please enter a word to be guessed by Player 2."
+game = Game.new(gets.chomp)
 
-p game.repeat_guess?("i")
+puts "Player 2, please enter a guess!"
+
+p game.word

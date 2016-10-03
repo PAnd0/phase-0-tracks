@@ -31,6 +31,16 @@ describe Game do
     expect(game.repeat_guess?("i")).to eq true
   end
 
+  it "checks if game has been won" do
+    game.update_word("h")
+    game.update_word("a")
+    game.update_word("i")
+    game.update_word("r")
+    game.update_word("p")
+    game.update_word("n")
+    expect(game.word_guessed?).to eq true
+  end
+
   # it "processes guess input" do
   #   game.guess("h")
   #   expect(game.word_state).to eq "h-i--i-"
