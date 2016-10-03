@@ -2,13 +2,24 @@ require_relative 'Game'
 
 describe Game do
   let(:game) { Game.new("hairpin") }
+  input = "hairpin"
 
   it "creates hash from input word" do
-    expect(game.word["hairpin"]).to eq "_______"
+    expect(game.word[input]).to eq "_______"
+  end
+
+  it "calculates guesses" do
+    expect(game.guess_count).to eq input.length * 3
   end
 
   it "tracks guesses remaining" do
-    expect(game.guesses).to eq 3 * "hairpin".length
+    game.use_guess
+    expect(game.guess_count).to eq input.length * 3 - 1
+  end
+
+  it "provides word state" do
+    expect(game.word_state).to eq "_______"
+
   end
 
 end

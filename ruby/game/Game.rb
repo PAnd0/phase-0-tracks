@@ -3,15 +3,25 @@
 
 # game class
 class Game
-  attr_accessor :word
+  attr_accessor :word, :guess_count
   def initialize(word)
     blanks = ""
     word.length.times do
       blanks << "_"
     end
     @word = {word => blanks}
-    @guesses = word.length * 3
+    @guess_count= word.length * 3
   end
+
+  def use_guess
+    @guess_count -= 1
+  end
+
+  def word_state
+    @word.values[0]
+  end
+
+
 end
 
 # user interface
