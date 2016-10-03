@@ -26,4 +26,22 @@ describe Game do
     expect(game.word_state).to eq "__i__i_"
   end
 
+  it "checks for repeat guesses" do
+    game.update_word("i")
+    expect(game.repeat_guess?("i")).to eq true
+  end
+
+  # it "processes guess input" do
+  #   game.guess("h")
+  #   expect(game.word_state).to eq "h-i--i-"
+  #   expect(game.guess_count).to eq input.length * 3 - 2
+  # end
+
+  # it "does not count repeat guesses" do
+  #   game.guess("h")
+  #   expect(game.word_state).to eq "h-i--i-"
+  #   expect(game.guess_count).to eq input.length * 3 - 2
+  # end
+
+
 end

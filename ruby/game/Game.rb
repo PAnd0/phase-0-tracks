@@ -31,9 +31,16 @@ class Game
     end
   end
 
+  def repeat_guess?(letter)
+    @word.values[0].include?(letter)
+  end
+
 
 end
 
 # user interface
-# game = new Game("hairpin")
-# p game.word
+game = Game.new("hairpin")
+game.update_word("i")
+p game.word_state
+
+p game.repeat_guess?("i")
