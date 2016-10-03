@@ -19,7 +19,11 @@ describe Game do
 
   it "provides word state" do
     expect(game.word_state).to eq "_______"
+  end
 
+  it "updates word state" do
+    game.update_word("i")
+    expect(game.word_state).to eq "__i__i_"
   end
 
 end

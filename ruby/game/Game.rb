@@ -21,6 +21,16 @@ class Game
     @word.values[0]
   end
 
+  def update_word(letter_guess)
+    i = 0
+    while i < @word.values[0].length
+      if @word.keys[0][i] == letter_guess
+       @word.values[0][i] = @word.keys[0][i]
+      end
+      i += 1
+    end
+  end
+
 
 end
 
