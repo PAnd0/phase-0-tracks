@@ -25,15 +25,17 @@ class Santa
     @reindeer_ranking.push(reindeer_name)
   end
 
-  def set_gender(gender)
+  def gender=(gender)
     @gender = gender
+  end
+
+  def gender
+    @gender
   end
 
   def reindeer_ranking
     @reindeer_ranking
   end
-
-
 
 end
 
@@ -44,6 +46,7 @@ Jamie.eat_milk_and_cookies("snickerdoodle")
 p Jamie.reindeer_ranking
 Jamie.get_mad_at("Prancer")
 p Jamie.reindeer_ranking
+p Jamie.gender
 
 # santas = []
 # example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A", "unfamiliar with gender concept"]
