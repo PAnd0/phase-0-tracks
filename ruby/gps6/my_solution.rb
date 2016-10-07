@@ -113,3 +113,17 @@ end
 #=======================================================================
 # Reflection Section
 
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+# => The outer hash uses strings as keys and hashes as values, assigning keys and values using =>. The inner hashes use the symbol_key: value syntax to assign values to symbol keys. This is shorthand for :symbol_key => value.
+
+# What does require_relative do? How is it different from require?
+# => #require_relative allows code to access another ruby document using a relative file path rather than an absolute file path as with require.
+
+# What are some ways to iterate through a hash?
+# => This can be done using hash.each {|key, value|}, hash.each do |key, value| end, while loop, etc.
+
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+# => We refactored virus_effects to take advantage of the scope of the instance variables used by the method. Because instance variables can be accessed from within the method by default, it is unnecessary to pass instance variables to class methods as parameters.
+
+# What concept did you most solidify in this challenge?
+# => I realized that methods CAN be called from within other methods as I had originally thought. I think this is only an issue because of scope in other situations.
