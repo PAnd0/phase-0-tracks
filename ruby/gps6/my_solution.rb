@@ -29,11 +29,15 @@ class VirusPredictor
 
     # predicted deaths is solely based on population density
     density_factor = (@population_density / 50).floor * 0.1
-    if density_factor > 0.4
-      density_factor = 0.4
-    elsif density_factor == 0
-      density_factor = 0.05
-    end
+    # limit range of density factor to between 0.05 and 0.4
+    density_factor = [[density_factor, 0.05].max, 0.4].min
+
+    # if density_factor > 0.4
+    #   density_factor = 0.4
+    # elsif density_factor == 0
+    #   density_factor = 0.05
+    # end
+
     number_of_deaths = (@population * density_factor).floor
 
     # if @population_density >= 200
@@ -55,19 +59,22 @@ class VirusPredictor
   def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    speed = 0.0
 
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
-    else
-      speed += 2.5
-    end
+
+    speed_factor = [(@population_density/50).floor, 4].min
+    speed = (5 - speed_factor) / 2.0
+
+    # if @population_density >= 200
+    #   speed += 0.5
+    # elsif @population_density >= 150
+    #   speed += 1
+    # elsif @population_density >= 100
+    #   speed += 1.5
+    # elsif @population_density >= 50
+    #   speed += 2
+    # else
+    #   speed += 2.5
+    # end
 
     puts " and will spread across the state in #{speed} months.\n\n"
 
