@@ -42,8 +42,26 @@ function shareKeyValPair(obj1, obj2) {
   return sharePair;
 }
 
+// buildTestArray function builds array of specified length of random strings
+function buildTestArray(arrLength) {
+  var testArr = [];
+  alphabet = "abcdefghijklmnopqrstuvwxyz";
+  for (var i = 0; i < arrLength; i++) {
+    randWord = "";
+    wordLength = Math.ceil(Math.random() * 10)
+    for (var j = 0; j < wordLength; j++) {
+      randIndex = Math.floor(Math.random() * 26);
+      randWord += alphabet[randIndex];
+    }
+    testArr.push(randWord);
+  }
+  return testArr;
+}
+
+
+
 // test longest function
-testArr = [["long phrase", "longest phrase", "longer phrase"], ["hi.", "how are you?"], ["bleep bloop", "fizz buzz", "foo", "bar"]];
+var testArr = [["long phrase", "longest phrase", "longer phrase"], ["hi.", "how are you?"], ["bleep bloop", "fizz buzz", "foo", "bar"]];
 
 for (var i = 0; i < testArr.length; i++) {
   console.log(longest(testArr[i]));
@@ -56,3 +74,10 @@ var testArr = [
 ];
 
 console.log(shareKeyValPair(testArr[0], testArr[1]));
+
+// test buildTestArray function
+for (var i = 0; i < 10; i++) {
+  var testArr = buildTestArray(i + 1);
+  console.log(testArr);
+  console.log(longest(testArr));
+}
