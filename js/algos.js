@@ -6,6 +6,17 @@
 //      if the current string is longer than longestStr, replace longestStr with the current string.
 //  return longestStr
 
+
+// shareKeyValPair function pseudocode
+//  write a function that takes two objects and checks to see if the objects share at least one key-value pair.
+// create boolean sharePair and set to false as default.
+//  for each key in obj1
+//     for each key in obj2
+//       if obj1 and obj2 share both keys and values
+//         set sharePair to true
+// return sharePair
+
+
 // longest function returns longest string in input array
 function longest(strArr) {
   var longestStr = '';
@@ -17,41 +28,31 @@ function longest(strArr) {
   return longestStr;
 }
 
-// shareKeyValPair function pseudocode
-
-
 // shareKeyValPair function returns whether any key, value pair is shared between two objects.
 function shareKeyValPair(obj1, obj2) {
   var sharePair = false;
 
-  // for ( i = 0; i < Object.keys(obj1).length; i++) {
-  //   for ( j = 0; j < Object.keys(obj2).length; j++) {
-  //     if (Object.keys(obj1)[i] == Object.keys(obj2)[j] && Object.values(obj1)[i] == Object.values(obj2)[j]) {
-  //       sharePair = true;
-  //     }
-  //   }
-  // }
-  // console.log(sharePair);
   for (var i in obj1) {
     for (var j in obj2) {
-      // console.log(i == j);
-      console.log(obj1[i] == obj2[j]);
+      if(i == j && obj1[i] == obj2[j]) {
+        sharePair = true;
+      }
     }
   }
+  return sharePair;
 }
 
-// // test longest function
-// testArr = [["long phrase", "longest phrase", "longer phrase"], ["hi.", "how are you?"], ["bleep bloop", "fizz buzz", "foo", "bar"]];
+// test longest function
+testArr = [["long phrase", "longest phrase", "longer phrase"], ["hi.", "how are you?"], ["bleep bloop", "fizz buzz", "foo", "bar"]];
 
-// for (var i = 0; i < testArr.length; i++) {
-//   console.log(longest(testArr[i]));
-// }
+for (var i = 0; i < testArr.length; i++) {
+  console.log(longest(testArr[i]));
+}
 
 // test shareKeyValPair function
 var testArr = [
-  {name: "Anstes", time: "29", color: "brown", age: "38"},
-  {occupation: "lumberjack", age: "38"}
+  {name: "Anstes", height: "29", color: "brown", age: "38"},
+  { age: "38", occupation: "lumberjack"}
 ];
 
-//console.log(shareKeyValPair(testArr[0], testArr[1]));
-shareKeyValPair(testArr[0], testArr[1]);
+console.log(shareKeyValPair(testArr[0], testArr[1]));
