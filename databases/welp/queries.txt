@@ -1,0 +1,26 @@
+
+
+//join three tables
+SELECT businesses.*, users.*, reviews.*
+FROM businesses
+JOIN reviews
+ON businesses.id = reviews.business_id
+JOIN users
+ON users.id = reviews.user_id;
+
+//join three tables and select only relevant columns
+SELECT businesses.name, users.firstname, users.lastname, reviews.stars, reviews.comment
+FROM businesses
+JOIN reviews
+ON businesses.id = reviews.business_id
+JOIN users
+ON users.id = reviews.user_id;
+
+//join and select only one business
+SELECT businesses.name, users.firstname, users.lastname, reviews.stars, reviews.comment
+FROM businesses
+JOIN reviews
+ON businesses.id = reviews.business_id
+JOIN users
+ON users.id = reviews.user_id
+WHERE businesses.name = "Amir's Towing";
