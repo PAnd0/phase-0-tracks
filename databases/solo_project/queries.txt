@@ -1,0 +1,42 @@
+SELECT * FROM students;
+
+1|Ferris Bueller|1.5|2
+2|James Albertson|4|1
+3|Abigail Johnson|5|2
+4|Bugsy Bilkerson|3.3|1
+5|Andy Filferfussen|2.2|2
+
+UPDATE students SET teacher_id=1 WHERE gpa<2;
+
+SELECT * FROM students JOIN teachers ON students.teacher_id=teachers.id;
+
+1|Ferris Bueller|1.5|1|1|Ms. Frizzle|34
+2|James Albertson|4|1|1|Ms. Frizzle|34
+3|Abigail Johnson|5|2|2|Mr. Cole|56
+4|Bugsy Bilkerson|3.3|1|1|Ms. Frizzle|34
+5|Andy Filferfussen|2.2|2|2|Mr. Cole|56
+
+SELECT students.name, students.gpa, teachers.name FROM students JOIN teachers ON students.teacher_id=teachers.id;
+
+Ferris Bueller|1.5|Ms. Frizzle
+James Albertson|4|Ms. Frizzle
+Abigail Johnson|5|Mr. Cole
+Bugsy Bilkerson|3.3|Ms. Frizzle
+Andy Filferfussen|2.2|Mr. Cole
+
+DELETE FROM students WHERE name="Ferris Bueller";
+
+UPDATE students SET teacher_id=3 WHERE name="Bugsy Bilkerson";
+
+SELECT students.name, students.gpa, teachers.name FROM students LEFT JOIN teachers ON students.teacher_id=teachers.id;
+
+James Albertson|4|Ms. Frizzle
+Abigail Johnson|5|Mr. Cole
+Bugsy Bilkerson|3.3|
+Andy Filferfussen|2.2|Mr. Cole
+
+SELECT students.name, students.gpa, teachers.name FROM students INNER JOIN teachers ON students.teacher_id=teachers.id;
+
+James Albertson|4|Ms. Frizzle
+Abigail Johnson|5|Mr. Cole
+Andy Filferfussen|2.2|Mr. Cole
