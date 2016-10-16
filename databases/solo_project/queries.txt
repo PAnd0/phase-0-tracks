@@ -25,3 +25,18 @@ Bugsy Bilkerson|3.3|Ms. Frizzle
 Andy Filferfussen|2.2|Mr. Cole
 
 DELETE FROM students WHERE name="Ferris Bueller";
+
+UPDATE students SET teacher_id=3 WHERE name="Bugsy Bilkerson";
+
+SELECT students.name, students.gpa, teachers.name FROM students LEFT JOIN teachers ON students.teacher_id=teachers.id;
+
+James Albertson|4|Ms. Frizzle
+Abigail Johnson|5|Mr. Cole
+Bugsy Bilkerson|3.3|
+Andy Filferfussen|2.2|Mr. Cole
+
+SELECT students.name, students.gpa, teachers.name FROM students INNER JOIN teachers ON students.teacher_id=teachers.id;
+
+James Albertson|4|Ms. Frizzle
+Abigail Johnson|5|Mr. Cole
+Andy Filferfussen|2.2|Mr. Cole
