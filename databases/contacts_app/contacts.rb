@@ -7,21 +7,38 @@ require 'faker'
 # create SQLite3 contacts database
 db = SQLite3::Database.new("contacts.db")
 
+# create a phone_types table
+create_phone_types_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS phone_types (
+    id INTEGER PRIMARY KEY,
+    phone_type VARCHAR(255)
+  );
+SQL
+
+db.execute(create_phone_types_table_cmd)
+# db.execute("DROP * FROM phone_types")
+db.execute("INSERT INTO phone_types (phone_type) VALUES ('mobile')")
+db.execute("INSERT INTO phone_types (phone_type) VALUES ('home')")
+db.execute("INSERT INTO phone_types (phone_type) VALUES ('work')")
+
+# phone_types = db.execute("SELECT * FROM phone_types")
+# p phone_types
+
 # create a contacts table
-create_table_cmd = <<-SQL
+create_contacts_table_cmd = <<-SQL
   CREATE TABLE IF NOT EXISTS contacts (
     id INTEGER PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     email VARCHAR(255),
     phone INTEGER,
-    phone_types_id INTEGER
+    phone_types_id INTEGER,
+    FOREIGN KEY (phone_types_id) REFERENCES phone_types(id)
   );
 SQL
 
-db.execute(create_table_cmd)
+db.execute(create_contacts_table_cmd)
 
-# create a phone_types table
 
 # add contact method
 def create_contact(db, first_name, last_name, email, phone, phone_types_id)
@@ -43,11 +60,11 @@ end
 # print contacts method
 def print_contacts(db)
   puts "-" * 60
-  contacts = db.execute("SELECT * FROM contacts")
+  contacts = db.execute("SELECT * FROM contacts JOIN phone_types ON contacts.phone_types_id = phone_types.id")
   contacts.each do |contact|
     puts "Name: #{contact[1].capitalize} #{contact[2].capitalize}"
     puts "Email: #{contact[3]}"
-    puts "Phone: #{contact[4]}"
+    puts "#{contact[7].capitalize}: #{contact[4]}"
     puts "-" * 60
   end
 end
@@ -66,7 +83,7 @@ def print_search_results(db, search_term)
 end
 
 
-
+# user interface
 valid_input = ['l', 's', 'a', 'r', 'e', 'q']
 input = nil
 puts "Welcome to your contacts app."
