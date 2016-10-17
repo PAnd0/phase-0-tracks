@@ -13,10 +13,6 @@ create_table_cmd = <<-SQL
     id INTEGER PRIMARY KEY,
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    street_address VARCHAR(255),
-    city VARCHAR(255),
-    state VARCHAR(255),
-    zip_code INTEGER,
     email VARCHAR(255),
     phone INTEGER,
     phone_types_id INTEGER
@@ -25,11 +21,19 @@ SQL
 
 db.execute(create_table_cmd)
 
-#add a test contact
-db.execute("INSERT INTO contacts (first_name, last_name, street_address, city, state, zip_code, email, phone, phone_types_id)
-  VALUES ('Patrick', 'Anderson', '8402 Twin Oaks Rd', 'Topeka', 'Kansas', 67234, 'Patrick.Anderson.000@gmail.com', 7604278394, 1);")
+# #add a test contact
+# db.execute("INSERT INTO contacts (first_name, last_name, email, phone, phone_types_id)
+#   VALUES ('Patrick', 'Anderson', 'Patrick.Anderson.000@gmail.com', 7604278394, 1);")
 
-#print database
+# add contact
+def create_contact(db, first_name, last_name, email, phone, phone_types_id)
+  db.execute("INSERT INTO contacts (first_name, last_name, email, phone, phone_types_id) VALUES (?, ?, ?, ?, ?);", [first_name, last_name, email, phone, phone_types_id])
+end
+
+create_contact(db, 'Patrick', 'Anderson', 'Patrick.Anderson.000@gmail.com', 7604703643, 1)
+
+# print database
 contacts = db.execute("SELECT * FROM contacts")
-puts contacts.class
-p contacts
+contacts.each do |contact|
+  puts "Name: #{contact[1]} #{contact[2]}"
+end
