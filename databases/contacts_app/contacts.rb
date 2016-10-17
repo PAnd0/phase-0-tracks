@@ -21,19 +21,24 @@ SQL
 
 db.execute(create_table_cmd)
 
-# #add a test contact
-# db.execute("INSERT INTO contacts (first_name, last_name, email, phone, phone_types_id)
-#   VALUES ('Patrick', 'Anderson', 'Patrick.Anderson.000@gmail.com', 7604278394, 1);")
 
 # add contact
 def create_contact(db, first_name, last_name, email, phone, phone_types_id)
   db.execute("INSERT INTO contacts (first_name, last_name, email, phone, phone_types_id) VALUES (?, ?, ?, ?, ?);", [first_name, last_name, email, phone, phone_types_id])
 end
 
-create_contact(db, 'Patrick', 'Anderson', 'Patrick.Anderson.000@gmail.com', 7604703643, 1)
+# create_contact(db, 'Patrick', 'Anderson', 'Patrick.Anderson.000@gmail.com', 7604703643, 1)
+50.times do
+  create_contact(db, Faker::Name.first_name, Faker::Name.last_name, Faker::Internet.email, Faker::PhoneNumber.phone_number, rand(3))
+end
 
 # print database
 contacts = db.execute("SELECT * FROM contacts")
 contacts.each do |contact|
   puts "Name: #{contact[1]} #{contact[2]}"
+  puts "Email: #{contact[3]}"
+  puts "Phone: #{contact[4]}"
 end
+
+# drop contacts table
+db.execute("DROP TABLE contacts;")
