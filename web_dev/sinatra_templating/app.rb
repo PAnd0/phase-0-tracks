@@ -24,4 +24,19 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/update_form' do
+  erb :update_student
+end
+
+post '/students/update' do
+  content = params['content']
+  if params['field'] == 'age'
+    content = content.to_i
+  end
+  sql = 'UPDATE students SET ' + params['field'].downcase + '=? WHERE name=?'
+  db.execute(sql, [content, params['name']])
+
+  redirect '/'
+end
+
 # add static resources
