@@ -6,13 +6,15 @@ console.log("The script is running!");
 // }
 
 function swapPiratePic(event) {
-  var photo = document.getElementById("guy-pic");
-  photo.src="images/pirate.jpg";
+  document.getElementById("guy-pic").src="images/pirate.jpg";
+  document.getElementById("pirate-button").style.visibility='hidden';
+  document.getElementById("concerned-button").style.visibility='visible';
 }
 
 function swapConcernedPic(event) {
-  var photo = document.getElementById("guy-pic");
-  photo.src="images/concerned.gif"
+  document.getElementById("guy-pic").src="images/concerned.gif"
+  document.getElementById("concerned-button").style.visibility='hidden';
+  document.getElementById("pirate-button").style.visibility='visible';
 }
 
 var pirateButton = document.getElementById("pirate-button");
